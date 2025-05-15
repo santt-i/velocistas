@@ -1,0 +1,78 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.alert {
+    transition: all 0.3s ease-in-out;
+}
+
+#cronometro {
+    font-family: 'Roboto Mono', monospace;
+    color: #2c3e50;
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.card {
+    border: none;
+    margin-bottom: 1.5rem;
+}
+
+.card-header {
+    border-bottom: none;
+}
+
+.shadow-sm {
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+
+.btn-group {
+    gap: 0.5rem;
+}
+
+.btn {
+    border-radius: 0.5rem;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.badge {
+    font-size: 0.9rem;
+    padding: 0.5em 1em;
+}
+
+.alert {
+    margin-bottom: 0;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+}
+
+/* Animaciones */
+.btn {
+    transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #cronometro {
+        font-size: 2.5rem;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-group .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}

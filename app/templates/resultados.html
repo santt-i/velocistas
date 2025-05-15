@@ -1,0 +1,49 @@
+<div class="table-responsive">
+    {% if resultados %}
+        {% set current_robot = None %}
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col" width="25%">Robot</th>
+                    <th scope="col" width="15%">Intento</th>
+                    <th scope="col" width="25%">Tiempo</th>
+                    <th scope="col" width="35%">Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for robot, intento in resultados %}
+                    {% if current_robot != robot.nombre %}
+                        {% set current_robot = robot.nombre %}
+                        <tr class="table-primary">
+                            <td colspan="4">
+                                <i class="fas fa-robot me-2"></i>
+                                <strong>{{ robot.nombre }}</strong>
+                            </td>
+                        </tr>
+                    {% endif %}
+                    <tr>
+                        <td></td>
+                        <td>
+                            <span class="badge bg-secondary">
+                                Intento {{ intento.intento_numero }}
+                            </span>
+                        </td>
+                        <td>
+                            <i class="fas fa-clock me-2"></i>
+                            {{ intento.tiempo }}
+                        </td>
+                        <td>
+                            <i class="fas fa-calendar-alt me-2"></i>
+                            {{ intento.fecha.strftime('%Y-%m-%d %H:%M:%S') }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info" role="alert">
+            <i class="fas fa-info-circle me-2"></i>
+            No hay resultados registrados todavía.
+        </div>
+    {% endif %}
+</div>

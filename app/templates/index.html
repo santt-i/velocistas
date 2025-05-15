@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Competencia de Robots Velocistas</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-robot me-2"></i>
+                Competencia de Robots Velocistas
+            </a>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <div class="row">
+            <!-- Columna de Registro de Robot -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <i class="fas fa-plus-circle me-2"></i>
+                        Registrar Robot
+                    </div>
+                    <div class="card-body">
+                        <form id="formRobot" class="row g-3">
+                            <div class="col-md-8">
+                                <input type="text" class="form-control" id="nombreRobot" 
+                                       placeholder="Nombre del robot" required>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="fas fa-save me-2"></i>Registrar
+                                </button>
+                            </div>
+                        </form>
+                        <div id="registroExito" class="alert alert-success mt-3" style="display: none;">
+                            <i class="fas fa-check-circle me-2"></i>
+                            ¡Robot registrado exitosamente!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna del Cronómetro -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <i class="fas fa-stopwatch me-2"></i>
+                        Cronómetro
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="display-1 mb-4" id="cronometro">00:00.00</div>
+                        <div class="btn-group mb-3">
+                            <button id="iniciar" class="btn btn-success btn-lg">
+                                <i class="fas fa-play me-2"></i>Iniciar
+                            </button>
+                            <button id="detener" class="btn btn-danger btn-lg" disabled>
+                                <i class="fas fa-stop me-2"></i>Detener
+                            </button>
+                            <button id="reiniciar" class="btn btn-secondary btn-lg">
+                                <i class="fas fa-redo me-2"></i>Reiniciar
+                            </button>
+                        </div>
+                        <button id="guardarIntento" class="btn btn-primary btn-lg w-100" disabled>
+                            <i class="fas fa-save me-2"></i>Guardar Intento
+                        </button>
+                        <div id="guardadoExito" class="alert alert-success mt-3" style="display: none;">
+                            <i class="fas fa-check-circle me-2"></i>
+                            Intento guardado exitosamente
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Resultados -->
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <i class="fas fa-list me-2"></i>
+                Resultados
+            </div>
+            <div class="card-body">
+                <div id="tablaResultados">
+                    <!-- Aquí se cargarán los resultados -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS y Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
